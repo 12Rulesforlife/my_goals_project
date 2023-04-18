@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h2>Add a Main Goal</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.title.id_for_label }}">Title:</label>
+        {{ form.title }}
+        <br>
+        <label for="{{ form.description.id_for_label }}">Description:</label>
+        {{ form.description }}
+        <br>
+        <label for="{{ form.category.id_for_label }}">Category:</label>
+        {{ form.category }}
+        <br>
+        <label for="{{ form.deadline.id_for_label }}">Deadline (YYYY-MM-DD):</label>
+        {{ form.deadline }}
+        <br>
+        <input type="submit" value="Add Goal">
+    </form>
+{% endblock %}

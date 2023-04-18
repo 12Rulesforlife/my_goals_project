@@ -1,0 +1,21 @@
+<!-- In templates/update_subtask.html -->
+
+{% extends "index.html" %}
+
+{% block content %}
+    <h2>Update Subtask</h2>
+
+    <form method="post" action="{% url 'update_subtask' subtask_id=subtask.id %}">
+        {% csrf_token %}
+        <label for="{{ form.title.id_for_label }}">Title:</label>
+        {{ form.title }}
+        <br>
+        <label for="{{ form.description.id_for_label }}">Description:</label>
+        {{ form.description }}
+        <br>
+        <label for="{{ form.deadline.id_for_label }}">Deadline (YYYY-MM-DD):</label>
+        {{ form.deadline }}
+        <br>
+        <input type="submit" value="Update Subtask">
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!-- In templates/add_achievement.html -->
+
+{% extends "index.html" %}
+
+{% block content %}
+    <h2>Add an Achievement</h2>
+
+    <form method="post" action="{% url 'add_achievement_route' %}">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required>
+        <br>
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" required>
+        <br>
+        <input type="submit" value="Add Achievement">
+    </form>
+{% endblock %}

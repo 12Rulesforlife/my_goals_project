@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Journal</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+        {% for entry in entries %}
+        <tr>
+            <td>{{ entry.entry_date }}</td>
+            <td>{{ entry.title }}</td>
+            <td>{{ entry.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

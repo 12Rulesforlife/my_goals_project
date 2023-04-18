@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h2>Add a Subgoal</h2>
+
+    <form method="post" action="{% url 'set_a_goal:new_subtasks' goal.id %}">
+        {% csrf_token %}
+        <label for="{{ form.title.id_for_label }}">Title:</label>
+        {{ form.title }}
+        <br>
+        <label for="{{ form.description.id_for_label }}">Description:</label>
+        {{ form.description }}
+        <br>
+        <input type="hidden" name="main_goal_id" id="main_goal_id" value="{{ goal.id }}">
+        <label for="{{ form.deadline.id_for_label }}">Deadline (YYYY-MM-DD):</label>
+        {{ form.deadline }}
+        <br>
+        <input type="submit" value="Add Subgoal">
+    </form>
+{% endblock %}

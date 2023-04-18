@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Achievements for {{ goal.title }}</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date Achieved</th>
+        </tr>
+        {% for achievement in achievements %}
+        <tr>
+            <td>{{ achievement.title }}</td>
+            <td>{{ achievement.description }}</td>
+            <td>{{ achievement.date_achieved }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No achievements have been added for this goal.</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'set_a_goal:index' %}">Back to Goals</a>
+{% endblock %}

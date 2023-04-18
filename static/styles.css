@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background-color: #f4f4f4;
+    padding: 1rem;
+}
+
+header h1 {
+    float: left;
+    margin: 0;
+}
+
+nav {
+    float: right;
+    text-align: right;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 1rem;
+}

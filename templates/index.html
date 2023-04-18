@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Management App</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/4+9/0DzjPeao5aa/4S9FNm73yd8i0q3/xE0Kfs" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Goal Management App</h1>
+    <div class="row">
+        <div class="col">
+            <h3>Main Goals</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Deadline</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for goal in goals %}
+                    <tr>
+                        <td>{{ goal.title }}</td>
+                        <td>{{ goal.description }}</td>
+                        <td>{{ goal.category }}</td>
+                        <td>{{ goal.deadline }}</td>
+                        <td>
+                            <a href="{% url 'set_a_goal:new_achievement' goal.id %}">Add Achievement</a> |
+                            <a href="{% url 'set_a_goal:view_achievement' goal.id %}">View Achievements</a> |
+                            <a href="{% url 'set_a_goal:new_subtask' goal.id %}">Add Subtask</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center">No goals available.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url 'set_a_goal:new_goal' %}" class="btn btn-primary">Add Main Goal</a>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMkQcJk2g" crossorigin="anonymous"></script>
+</body>
+</html>
